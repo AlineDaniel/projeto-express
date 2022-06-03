@@ -51,8 +51,12 @@ const moviesController = {
             });
     },
     //Aqui estão as rotas para trabalhar com o CRUD
-    add: function (req, res) {
-        
+    add: async function (req, res) {
+        const allGenres = await db.Genre.findAll();
+        res.render("moviesAdd", {
+            allGenres: allGenres
+        });
+    
     },
     create: function (req,res) {
 
